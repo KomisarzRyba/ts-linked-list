@@ -96,6 +96,26 @@ export class LinkedList<T> {
         newNode.next = cur.next;
         cur.next = newNode;
     };
+
+    delete = (item: T) => {
+        if (this.length === 0) return;
+
+        if (this.head?.value === item) {
+            this.head = this.head.next;
+            this.length--;
+            return;
+        }
+
+        let cur = this.head;
+        while (cur?.next) {
+            if (cur.next.value === item) {
+                cur.next = cur.next.next;
+                this.length--;
+                return;
+            }
+            cur = cur.next;
+        }
+    }
 }
 
 //class DoublyLinkedList<T> extends LinkedList<T> {}

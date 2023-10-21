@@ -63,4 +63,18 @@ describe("Singly Linked List", () => {
         expect(list.indexOf(2)).toBe(1);
         expect(list.indexOf(3)).toBe(2);
     });
+
+    test("Delete", () => {
+        const list = new LinkedList<number>();
+        list.append(1);
+        list.append(2);
+        list.append(3);
+        list.delete(2);
+        expect(list.head?.next?.value).toBe(3);
+        expect(list.indexOf(3)).toBe(1);
+        list.delete(1);
+        expect(list.get(0)).toBe(3);
+        list.delete(3);
+        expect(list.length).toBe(0);
+    });
 });
